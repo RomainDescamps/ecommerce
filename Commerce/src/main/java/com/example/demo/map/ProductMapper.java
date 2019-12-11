@@ -8,7 +8,7 @@ import com.example.demo.bean.Product;
 @Mapper
 public interface ProductMapper {
 
-	@Insert("insert into Product(name, description, lastUpdate, price, category) values(#{name},#{description},#{lastUpdate},#{price},#{category})")
+	@Insert("insert into Product(name, description, lastUpdate, price, category) values(#{name},#{description},#{lastUpdate},#{price},#{category.id})")
     void insert(Product product);
 
 }

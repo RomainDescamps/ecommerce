@@ -11,9 +11,8 @@
 </textarea>
 <span class="erreur">${form.erreurs['descriptionProduct']}</span>
 <br />
-<label for="priceProduct">prix<span class="requis">*</span></label>
-<textarea id="priceProduct" name="priceProduct" rows="4" cols="50">
-	<c:out value="${product.price}"/>
-</textarea>
+<label for="priceProduct">Prix<span class="requis">*</span></label>
+<input type="text" id="nameProduct" name="priceProduct"
+	value="<c:out value="${product.price}"/>" size="30" maxlength="30" />
 <span class="erreur">${form.erreurs['priceProduct']}</span>
 <br />

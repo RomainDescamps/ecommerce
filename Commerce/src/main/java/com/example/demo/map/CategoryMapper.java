@@ -7,12 +7,11 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import com.example.demo.bean.Category;
-import com.example.demo.bean.Client;
 
 @Mapper
 public interface CategoryMapper {
 
-	@Select("select * from category")
+	@Select("select * from Category")
 	public List<Category> findAll();
 
 	 @Insert("insert into Category(id, name) values(#{idCategory},#{name})")
