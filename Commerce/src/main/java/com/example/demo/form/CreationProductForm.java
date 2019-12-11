@@ -11,8 +11,8 @@ import com.example.demo.bean.Product;
 public final class CreationProductForm {
 	
 	private static final String CHAMP_NAME = "nameProduct";
-	private static final String CHAMP_DESCRIPTION = "nameDescription";
-	private static final String CHAMP_PRICE= "namePrice";
+	private static final String CHAMP_DESCRIPTION = "descriptionProduct";
+	private static final String CHAMP_PRICE= "priceProduct";
 	
 	private String              resultat;
     private Map<String, String> erreurs = new HashMap<String, String>();

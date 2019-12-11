@@ -4,10 +4,10 @@
 <div id="menu">
 	<c:if test="${empty sessionScope.sessionUtilisateur}">
 	<p>
-		<a href="<c:url value="connexion"/>">Connexion</a>
+		<a href="<c:url value="/connexion"/>">Connexion</a>
 	</p>
 	<p>
-		<a href="<c:url value="index"/>">Accueil</a>
+		<a href="<c:url value="/index"/>">Accueil</a>
 	</p>
 	
 	</c:if>
