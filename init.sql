@@ -15,10 +15,10 @@ CREATE TABLE Product
     name varchar(100) NOT NULL,
     description varchar(100) NOT NULL,
     lastUpdate date NOT NULL,
-    price integer DEFAULT NULL,
+    price integer NOT NULL,
     category integer NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (category)
+    FOREIGN KEY (category) REFERENCES category(id)
 );
 
 CREATE TABLE Category
