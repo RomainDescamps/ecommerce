@@ -12,10 +12,10 @@ import com.example.demo.bean.Client;
 @Mapper
 public interface CategoryMapper {
 
-	@Select("select * from Category")
+	@Select("select * from category")
 	public List<Category> findAll();
 
-	 @Insert("insert into Category(idCategory, name) values(#{idCategory},#{name})")
+	 @Insert("insert into Category(id, name) values(#{idCategory},#{name})")
 	    void insert(Category category);
 	 
 }

@@ -1,5 +1,8 @@
 package com.example.demo.bean;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class Category {
 
 	private int idCategory;

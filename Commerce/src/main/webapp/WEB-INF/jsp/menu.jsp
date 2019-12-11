@@ -31,6 +31,10 @@
 		<a href="<c:url value="/listeClients"/>">Voir les clients
 			existants</a>
 	</p>
+		<p>
+		<a href="<c:url value="/listeCategories"/>">Voir les catégories de produit
+			existantes</a>
+	</p>
 	<p>
 		<a href="<c:url value="/listeCommandes"/>">Voir les commandes
 			existantes</a>
