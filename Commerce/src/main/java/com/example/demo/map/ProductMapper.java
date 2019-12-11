@@ -19,4 +19,6 @@ public interface ProductMapper {
     public List<Product> findAll();
 
 
+	@Select("select * from Product where name = #{name}")
+	public Product findByName(String name);
 }

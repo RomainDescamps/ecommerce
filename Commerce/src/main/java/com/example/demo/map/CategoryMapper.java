@@ -12,7 +12,7 @@ import com.example.demo.bean.Category;
 @Mapper
 public interface CategoryMapper {
 
-	@Select("select * from category")
+	@Select("select * from Category")
 	public List<Category> findAll();
 
 	 @Insert("insert into Category(id, name) values(#{idCategory},#{name})")
