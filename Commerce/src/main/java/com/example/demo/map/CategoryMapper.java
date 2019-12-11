@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import com.example.demo.bean.Category;
-import com.example.demo.bean.Client;
+
 
 @Mapper
 public interface CategoryMapper {

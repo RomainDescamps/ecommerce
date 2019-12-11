@@ -13,20 +13,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.demo.bean.Category;
-import com.example.demo.bean.Client;
-import com.example.demo.map.CategoryMapper;
+import com.example.demo.bean.Product;
+import com.example.demo.map.ProductMapper;
 
 @Controller
-public class ListeCategoryController {
-	public static final String ATT_CATEGORY = "category";
+public class ListeProductController {
+	public static final String ATT_PRODUCT = "product";
 	public static final String ATT_FORM = "form";
-	public static final String PARAM_NOM_CATEGORY = "nomCategory";
-	public static final String SESSION_CATEGORY = "categories";
+	public static final String PARAM_NOM_PRODUCT = "nomProduct";
+	public static final String SESSION_PRODUCT = "products";
 	
 	@Autowired
-	private CategoryMapper categoryMapper;
+	private ProductMapper productMapper;
 	
-	@RequestMapping(value = { "/listeCategories" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/listeProduits" }, method = RequestMethod.GET)
 	public String doGet(HttpServletRequest request) {
 		/* À la réception d'une requête GET, affichage de la liste des clients */
 		
@@ -35,23 +35,25 @@ public class ListeCategoryController {
 	//	@SuppressWarnings("unchecked")
 	//	Map<String, Client> clients = (HashMap<String, Client>) session.getAttribute(SESSION_CLIENTS);
 		
-		Map<String, Category> mapcategory = new HashMap<> ();
+		Map<String, Product> mapproduct = new HashMap<> ();
 		
 		
-		List<Category> categoriesBDD = this.categoryMapper.findAll();
+		List<Product> productsBDD = this.productMapper.findAll();
 		
 		
-		for (int i = 0; i < categoriesBDD.size(); i++) {
-			Category categorybdd = new Category();
-			categorybdd.setIdCategory(categoriesBDD.get(i).getIdCategory());
-			categorybdd.setName(categoriesBDD.get(i).getName());
+		for (int i = 0; i < productsBDD.size(); i++) {
+			Product productbdd = new Product();
+			productbdd.setId(productsBDD.get(i).getId());
+			productbdd.setName(productsBDD.get(i).getName());
+			productbdd.setDescription(productsBDD.get(i).getDescription());
+			productbdd.setLastUpdate(productsBDD.get(i).getLastUpdate());
+			productbdd.setPrice(productsBDD.get(i).getPrice());
 			
-			
-			mapcategory.put(categoriesBDD.get(i).getIdCategory()+categoriesBDD.get(i).getName(), categorybdd);
+			mapproduct.put(productsBDD.get(i).getId()+productsBDD.get(i).getName(), productbdd);
 			
 		}
 		
-		request.setAttribute(SESSION_CATEGORY, mapcategory);
+		request.setAttribute(SESSION_PRODUCT, mapproduct);
 	
 	
 		//session.setAttribute(SESSION_CLIENTS, clients);
@@ -59,23 +61,23 @@ public class ListeCategoryController {
 		return "listeCategories";
 	}
 
-	@RequestMapping(value = { "/suppressionCategory" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/suppressionProduct" }, method = RequestMethod.GET)
 	public String suppression(HttpServletRequest request) {
 		/* À la réception d'une requête GET, affichage de la liste des clients */
 		/* Récupération du paramètre */
-		String nomCategory = getValeurParametre(request, PARAM_NOM_CATEGORY);
+		String nomCategory = getValeurParametre(request, PARAM_NOM_PRODUCT);
 
 		/* Récupération de la Map des clients enregistrés en session */
 		HttpSession session = request.getSession();
 		@SuppressWarnings("unchecked")
-		Map<String, Category> categories = (HashMap<String, Category>) session.getAttribute(SESSION_CATEGORY);
+		Map<String, Category> categories = (HashMap<String, Category>) session.getAttribute(SESSION_PRODUCT);
 
 		/* Si le nom du client et la Map des clients ne sont pas vides */
 		if (nomCategory != null && categories != null) {
 			/* Alors suppression du client de la Map */
 			categories.remove(nomCategory);
 			/* Et remplacement de l'ancienne Map en session par la nouvelle */
-			session.setAttribute(SESSION_CATEGORY, categories);
+			session.setAttribute(SESSION_PRODUCT, categories);
 		}
 
 		/* Redirection vers la fiche récapitulative */

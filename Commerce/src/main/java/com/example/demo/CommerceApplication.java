@@ -8,7 +8,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.example.demo.bean.Category;
 import com.example.demo.bean.Client;
+import com.example.demo.map.CategoryMapper;
 import com.example.demo.map.ClientMapper;
 
 
@@ -18,10 +20,14 @@ import com.example.demo.map.ClientMapper;
 public class CommerceApplication implements CommandLineRunner {
 
 	private final ClientMapper clientMapper;
+	private final CategoryMapper categoryMapper;
 
-	public CommerceApplication(ClientMapper clientMapper) {
+	public CommerceApplication(ClientMapper clientMapper,CategoryMapper categoryMapper) {
 		this.clientMapper = clientMapper;
+		this.categoryMapper = categoryMapper;
 	}
+	
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(CommerceApplication.class, args);
@@ -37,6 +43,14 @@ public class CommerceApplication implements CommandLineRunner {
 
 		for (int i = 0; i < clients.size(); i++) {
 			System.out.println(clients.get(i).toString());
+
+
+		}
+		
+		List<Category> category = this.categoryMapper.findAll();
+
+		for (int i = 0; i < category.size(); i++) {
+			System.out.println(category.get(i).toString());
 
 
 		}
