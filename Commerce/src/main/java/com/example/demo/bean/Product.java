@@ -1,7 +1,9 @@
 package com.example.demo.bean;
 
 import java.util.Date;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class Product {
 	
 	private int id;
