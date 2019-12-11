@@ -14,8 +14,8 @@ CREATE TABLE Product
     id integer NOT NULL,
     name varchar(100) NOT NULL,
     description varchar(100) NOT NULL,
-    lastUpdate varchar(100) NOT NULL,
-    price varchar(100) DEFAULT NULL,
+    lastUpdate date NOT NULL,
+    price integer DEFAULT NULL,
     category integer NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (category)
